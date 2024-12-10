@@ -1,0 +1,34 @@
+24-11-30 13:01:53.587 [cluster-ClusterId{value='674a017922b71e5be37e3a0c', description='null'}-cluster0-shard-00-02.bture.mongodb.net:27017] INFO  org.mongodb.driver.cluster - Exception in monitor thread while connecting to server cluster0-shard-00-02.bture.mongodb.net:27017 
+com.mongodb.MongoSocketReadException: Exception receiving message
+	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:702)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:574)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:410)
+	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:369)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:221)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:157)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: java.net.SocketException: Socket is closed
+	at java.base/java.net.Socket.setSoTimeout(Socket.java:1155)
+	at java.base/sun.security.ssl.BaseSSLSocketImpl.setSoTimeout(BaseSSLSocketImpl.java:637)
+	at java.base/sun.security.ssl.SSLSocketImpl.setSoTimeout(SSLSocketImpl.java:75)
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:137)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:713)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:571)
+	... 5 common frames omitted
+24-11-30 13:01:53.587 [cluster-ClusterId{value='674a017922b71e5be37e3a0c', description='null'}-cluster0-shard-00-00.bture.mongodb.net:27017] INFO  org.mongodb.driver.cluster - Exception in monitor thread while connecting to server cluster0-shard-00-00.bture.mongodb.net:27017 
+com.mongodb.MongoSocketReadException: Exception receiving message
+	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:702)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:574)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:410)
+	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:369)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:221)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:157)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: java.net.SocketException: Socket is closed
+	at java.base/java.net.Socket.setSoTimeout(Socket.java:1155)
+	at java.base/sun.security.ssl.BaseSSLSocketImpl.setSoTimeout(BaseSSLSocketImpl.java:637)
+	at java.base/sun.security.ssl.SSLSocketImpl.setSoTimeout(SSLSocketImpl.java:75)
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:137)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:713)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:571)
+	... 5 common frames omitted
