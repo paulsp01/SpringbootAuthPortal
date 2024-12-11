@@ -1,5 +1,7 @@
 package net.engineeringdigest.journalApp.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import net.engineeringdigest.journalApp.Entity.journalEntry;
 import net.engineeringdigest.journalApp.Entity.user;
 import net.engineeringdigest.journalApp.services.journalEntryService;
@@ -20,6 +22,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/journal")
+@Tag(name="Journal APIs")
 public class journalEntryControllerv2 {
      @Autowired
     private journalEntryService  journalEntryService;
@@ -30,6 +33,7 @@ public class journalEntryControllerv2 {
 
 
     @GetMapping
+    @Operation(summary="Get all journal entries of a user")
     public ResponseEntity<?> getAllJournalEntriesOfUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String userName = authentication.getName();
@@ -62,14 +66,15 @@ public class journalEntryControllerv2 {
     }
 
     @GetMapping("id/{myId}")
-    public ResponseEntity<journalEntry> getJournalEntryById(@PathVariable ObjectId myId) {
+    public ResponseEntity<journalEntry> getJournalEntryById(@PathVariable String myId) {
+        ObjectId objectId=new ObjectId();
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String userName = authentication.getName();
         user user = userService.findByUserName(userName);
-        List<journalEntry> collect = user.getJournalEntries().stream().filter(x -> x.getId().equals(myId)).collect(Collectors.toList());
+        List<journalEntry> collect = user.getJournalEntries().stream().filter(x -> x.getId().equals(objectId)).collect(Collectors.toList());
 
         if (!collect.isEmpty()) {
-            Optional<journalEntry> journalEntry = journalEntryService.findById(myId);
+            Optional<journalEntry> journalEntry = journalEntryService.findById(objectId);
             if (journalEntry.isPresent()) {
                 return new ResponseEntity<>(journalEntry.get(), HttpStatus.OK);
             }
